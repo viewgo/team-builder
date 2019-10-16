@@ -84,4 +84,20 @@ button{
   margin: .5rem;
   padding: .5rem;
   background-color: #393e46;
+  border: 1px solid #393e46;
 }
+
+button:active{
+  border: 1px solid #d65a31;
+}
+
+button:hover{
+  border: 1px solid #d65a31;
+}
+
+
+button:focus{
+  border: 1px solid #d65a31;
+  outline: 0;
+}
+

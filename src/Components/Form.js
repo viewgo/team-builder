@@ -8,14 +8,13 @@ function Form(props) {
   });
 
   const changeHandler = event => {
-    console.log(event.target.value);
     setNewTeam({ ...newTeam, [event.target.name]: event.target.value });
-    console.log(newTeam);
   };
 
   const submitForm = e => {
     e.preventDefault();
-    console.log(e);
+    console.log("Sending newTeam to addNewMember", newTeam);
+    if(newTeam.name !== "" && newTeam.email !== "" && newTeam.role !== "")
     props.addNewMember(newTeam);
     setNewTeam({ name: "", email: "", role: "" });
   };
@@ -49,9 +48,8 @@ function Form(props) {
           {/* <input name="role" id="role" type="text" placeholder="Role" value={newTeam.role} onChange={changeHandler} /> */}
 
           <select name="role" id="role" placeholder="Role" value={newTeam.role} onChange={changeHandler}>
-            <option selected value="Web Designer">
-            Web Designer
-            </option>
+            <option defaultValue="Job Title">Job Title</option>
+            <option value="Web Designer">Web Designer</option>
             <option value="Front End Developer">Front End Developer</option>
             <option value="Back End Developer">Back End Developer</option>
             <option value="Full Stack Developer">Full Stack Developer</option>
