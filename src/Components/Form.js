@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 function Form(props) {
   const [newTeam, setNewTeam] = useState({
@@ -13,11 +13,34 @@ function Form(props) {
 
   const submitForm = e => {
     e.preventDefault();
-    console.log("Sending newTeam to addNewMember", newTeam);
-    if(newTeam.name !== "" && newTeam.email !== "" && newTeam.role !== "")
-    props.addNewMember(newTeam);
-    setNewTeam({ name: "", email: "", role: "" });
+
+    if (!props.memberToEdit) {
+      console.log("Sending newTeam to addNewMember", newTeam);
+      if (newTeam.name !== "" && newTeam.email !== "" && newTeam.role !== "") {
+        props.addNewMember(newTeam);
+        setNewTeam({ name: "", email: "", role: "" });
+      }
+      else{
+        //warn user to select all fields
+      }
+    } else if (props.memberToEdit) {
+      console.log("editing instead");
+      props.editMember(newTeam);
+      setNewTeam({ name: "", email: "", role: "" });
+    }
   };
+
+  useEffect(() => {
+    if (props.memberToEdit) {
+      const memberedit = {
+        name: props.memberToEdit.name,
+        email: props.memberToEdit.email,
+        role: props.memberToEdit.role
+      };
+      console.log(memberedit);
+      setNewTeam(memberedit);
+    }
+  }, [props.memberToEdit]);
 
   return (
     <>
@@ -60,7 +83,7 @@ function Form(props) {
           </select>
         </div>
 
-        <button type="submit">Add Team Member</button>
+        <button type="submit">Submit</button>
       </form>
     </>
   );

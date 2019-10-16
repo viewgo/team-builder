@@ -8,8 +8,10 @@ function Team(props) {
         {props.team.map((element, index) => (
           <div key={index} className="member-card">
             <h3>{element.name}</h3><br/>
-            <span>{element.email}</span><br/>
-            <span>{element.role}</span>
+            <span>{element.email}</span>
+            <span>{element.role}</span><br/>
+            <button onClick={e => props.editButton(element)}>Edit</button>
+
           </div>
         ))}
       </div>
