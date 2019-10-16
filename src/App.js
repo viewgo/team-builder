@@ -3,9 +3,10 @@ import "./App.css";
 
 import Form from "./Components/Form";
 import Team from "./Components/Team";
+import {data} from "./data";
 
 function App() {
-  const [team, setTeam] = useState([{ name: "Hugo", email: "asdfk@123.com", role: "Full Stack Web Developer" }]);
+  const [team, setTeam] = useState(data);
 
   const addNewMember = member => {
     const newMember = {

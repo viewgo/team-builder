@@ -1,29 +1,87 @@
+body{
+  background-color: #222831;
+  color: #eeeeee;
+}
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
+.team{
+  /* display: grid;
+  grid-template-columns: 33% 33% 33%;
+  grid-template-rows: auto;
+  justify-content: center; */
+  /* grid-auto-flow: column; */
+
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.member-card{
+  /* border: 1px solid red; */
+  width: 25%;
+  background-color: #393e46;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 1rem;
+  margin: 1rem;
+  box-shadow: 0 -1px 0 #d65a31, 0 0 5px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
 }
 
-.App-link {
-  color: #09d3ac;
+.member-card h3{
+  margin: 0;  
 }
+
 
 form{
   display: flex;
-  flex-direction: column;
+  flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
+  width: 50%;
+  margin: 0 auto;
+  margin-bottom: 5rem;
+}
+
+.form-inputs{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+label{
+  padding: .5rem;
+}
+
+input{
+  background-color: #393e46;
+  border: 0px;
+  padding: .5rem;
+  color: #eeeeee;
+  margin: .5rem;
+}
+
+select{
+  background-color: #393e46;
+  border: 0px;
+  padding: .5rem;
+  color: #eeeeee;
+  margin: .5rem;
+  width: 185px;
+}
+
+select-selected {
+  background-color: DodgerBlue;
+}
+
+button{
+  color: #eeeeee;
+  width: 185px;
+  border: 0;
+  margin: .5rem;
+  padding: .5rem;
+  background-color: #393e46;
 }

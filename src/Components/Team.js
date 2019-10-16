@@ -2,15 +2,14 @@ import React from "react";
 
 function Team(props) {
   return (
-    <div className="team">
+    <div>
       <h2>Team Members</h2>
-
-      <div className="member-card">
+      <div className="team">
         {props.team.map((element, index) => (
-          <div key={index}>
-            <h3>{element.name}</h3>
-            <h4>{element.email}</h4>
-            <h4>{element.role}</h4>
+          <div key={index} className="member-card">
+            <h3>{element.name}</h3><br/>
+            <span>{element.email}</span><br/>
+            <span>{element.role}</span>
           </div>
         ))}
       </div>
